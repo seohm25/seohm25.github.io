@@ -1,0 +1,102 @@
+.deco-top {
+  font-family: "Bitcount Prop Single Ink", system-ui;
+  font-size: 50px;
+  color:pink;
+  -webkit-text-stroke: 0.5px darkblue;
+  position: relative;
+  text-align: center;
+}
+
+.deco-bottom {
+  font-family: "Bitcount Prop Single Ink", system-ui;
+  font-size: 50px;
+  color:pink;
+  -webkit-text-stroke: 0.5px darkblue;
+  position: relative;
+  text-align: center;
+  top:730px;
+
+}
+
+.title {
+  font-family: "Bitcount Prop Single Ink", system-ui;
+  font-size: 200px;
+  color:pink;
+  -webkit-text-stroke: 1px darkblue;
+  position: absolute;
+  left: 10%;
+
+}
+
+.end {
+  font-family: "Bitcount Prop Single Ink", system-ui;
+  font-size: 150px;
+  color:pink;
+  -webkit-text-stroke: 1px darkblue;
+  position: absolute;
+  left: 10%;
+  top:600px;
+
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 rows */
+  gap: 10px;
+}
+
+.grid-item img {
+  width: 100%;
+  height: auto;   /*depends on parent div proportion*/
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid-item {
+  position: relative;
+}
+
+.circle-button {
+  position: absolute;
+  top:80%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background-color: yellow;
+  border-radius: 70%;
+  border: 2px solid pink;
+  filter: blur(5px);
+  box-shadow: 0 2px 0 rgba(0, 0.2, 0.2, 0.2);
+  /*filter: blur(7px);*/
+  cursor: pointer;
+  transition: 
+    background-color 0.3s ease,
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
+
+}
+
+/* push effect if you click */
+.circle-button:active {
+  transform: scale(0.9) translate(-50%, -50%) translateY(3px);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* turn into black after you click */
+.circle-button.active {
+  background-color: gray;
+}
+
+body {
+  background-color: white;
+  transition: background-color 0.4s ease;
+}
+
+body.dark {
+  background-color: black;
+}
+
+
+
+
