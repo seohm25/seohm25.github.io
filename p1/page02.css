@@ -1,0 +1,106 @@
+h4 {
+    font-family: "Cossette Texte", sans-serif;
+    color: rgb(255, 76, 76);
+  }
+  
+  p, i {
+    font-family: "Cossette Texte", sans-serif;
+    color: rgb(255, 76, 76);
+  }
+  
+  p {
+    font-size: 13px;
+  }
+
+  i {
+    font-size: 11px;
+  }
+  
+.navbar {
+    display:flex;
+    gap: 40px;
+    padding: 10px 10px;
+    margin:10px;
+    background-color: transparent; 
+    position: fixed;
+    top: 10;
+    left: 0;
+  }
+  
+  .nav-item {
+    position: relative; /* hover-text 기준 */
+    text-decoration: none;
+  }
+  
+  
+  .dot {
+      width:15px;
+      height:15px;
+      background-color: rgb(255, 76, 76);
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      cursor: pointer;
+      top:10;
+    }
+  
+    .dot:hover {
+      background-color: rgb(242, 255, 167);
+      transform: scale(1.1);
+    }
+  
+    .dot.active {
+      background-color: rgb(242, 255, 167);  /* 활성 페이지 색상 */
+      transform: scale(1.1);  /* 강조 효과 */
+    }
+  
+    .hover-text {
+      opacity: 0;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      transform: translateX(-50%);
+      color: rgb(255, 76, 76);
+      font-size: 12px;
+      font-family: "Cossette Texte", sans-serif;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+  
+    .dot:hover + .hover-text {
+      opacity: 1;
+    }
+  
+
+.image-container {
+    width: 20px;
+    height:auto;
+    left: 0%;
+    top:0%;
+    margin:70px;
+    background-color: transparent;
+    position: fixed;
+  }
+  
+  .container {
+    width: 50%;
+    height:auto;
+    right:0%;
+    margin-top:5px;
+    background-color: transparent;
+    position:absolute;
+  }
+  
+  .container1 {
+    width: 25%;
+    height:auto;
+    left:0%;
+    top: 30%;
+    margin:70px;
+    background-color: transparent;
+    position:absolute;
+    position: fixed;
+  }
+  
+  
+  

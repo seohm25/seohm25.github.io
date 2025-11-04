@@ -1,0 +1,175 @@
+
+
+@keyframes blink {
+  0% { opacity: 0; } 
+  50% { opacity: 0; } 
+  100% { opacity: 1; } 
+}
+
+.blinking-text {
+  position: absolute;
+  animation: blink 1s infinite; 
+  font-size: 15px;
+  font-family: "Cossette Texte", sans-serif;
+  color: rgb(255, 76, 76);
+  left: 49%;
+  top: 20%;
+  text-align: center;
+  transform: translateX(-50%, -50%);
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  display: block;
+  width: 50%;
+  height: auto;
+}
+
+.hover-img {
+  position: absolute;
+  top: 50px;   
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: auto;
+}
+
+
+
+
+.dot {
+  width:15px;
+  height:15px;
+  background-color: rgb(255, 76, 76);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  position:absolute;
+  top: -290px;
+}
+
+.dot:hover {
+  background-color: rgb(230, 255, 167);
+  transform: scale(1.2);
+}
+
+.dot.active {
+  background-color: rgb(244, 209, 209); 
+}
+
+
+/*title*/
+h5 {
+  text-align: center;
+  position: fixed;
+  top: 60px;
+  bottom:auto;
+  left:auto;
+  right:auto;
+  font-family: "Cossette Texte", sans-serif;
+  
+}
+
+
+.outline-blur {
+  font-size: 20px;
+  color: rgb(255, 168, 168); 
+  position: relative;
+  text-shadow:
+    0 0 8px rgb(255, 24, 62),
+    0 0 12px rgb(255, 24, 62),
+    0 0 20px rgb(255, 24, 62);
+}
+
+img {
+  width: 50%;
+  height: auto;
+  position: absolute;
+  right:22%;
+  top:20%;
+
+}
+
+
+
+
+
+body {
+    background-color:  rgb(255, 255, 255); 
+    
+}
+
+
+/* dot container align*/
+#dots {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;             /* first not shows up */
+  transition: opacity 1s ease;  /* fade in */
+  pointer-events: none;   
+}
+
+#dots.show {
+  opacity: 1;             /* shows up */
+  pointer-events: auto;   
+}
+/* dot style */
+.dot {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background-color: rgb(255, 76, 76);
+  position: relative;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* hover */
+.dot:hover {
+  background-color: rgb(230, 255, 167);
+  transform: scale(1.0);
+}
+
+/* hover image+text  */
+.dot .hover-img {
+  position: absolute;
+  top: -80px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.dot .hover-text {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgb(255, 76, 76);
+  font-size: 14px;
+  font-family: "Cossette Texte", sans-serif;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* hover image and text show up*/
+.dot:hover .hover-img,
+.dot:hover .hover-text {
+  opacity: 1;
+}
+
