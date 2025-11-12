@@ -1,9 +1,7 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const computer = document.getElementById("computer");
-    const dots = document.getElementById("dots");
+
+  const img = document.getElementById('toggleImage');
+  const text = document.getElementById('toggleText');
   
-    computer.addEventListener("click", () => {
-      dots.classList.add("show"); // fade-in
-    });
+  img.addEventListener('click', () => {
+    text.style.display = text.style.display === 'none' ? 'block' : 'none';
   });
- 
