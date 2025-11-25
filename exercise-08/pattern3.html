@@ -8,10 +8,10 @@
   .sq {
     position: absolute;
     font-family: Arial;
-    font-size: 5px;
+    font-size: 100px;
     color: blue;
     opacity: 1;
-    transition: opacity 0.2s ease;
+    transition: opacity 0s ease;
     white-space: nowrap;
   }
 </style>
@@ -32,10 +32,10 @@ for (let r = 0; r < rows; r++) {
     document.body.appendChild(el);
 
     // 고정 위치
-    const x = 60 + c * 110;
-    const y = 60 + r * 60;
+    const x = 10 + c * 110;
+    const y = 10 + r * 60;
 
-    // 랜덤 깜박임 타이머를 위해 저장
+    // 랜덤 깜박임 타이머
     items.push({ el, x, y });
   }
 }
@@ -56,7 +56,7 @@ function animate() {
     if (r > 0.97) { 
       sq.el.style.opacity = 1;      // 밝게
     } else if (r < 0.02) {
-      sq.el.style.opacity = 0.1;    // 어둡게
+      sq.el.style.opacity = 0;    // 어둡게
     }
   }
 
