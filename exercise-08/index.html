@@ -5,7 +5,7 @@
 <title>pattern1</title>
 
 <style>
-  /* 픽셀들을 담는 컨테이너 */
+ 
   #pixel-container {
     display: grid;
     width: 300vw;
@@ -15,11 +15,11 @@
     margin: 10px;
   }
 
-  /* 픽셀 스타일 */
+
   .pixel {
     width: 5px;
     height: 50px;
-    background: rgb(0, 0, 0); /* 기본 색 */
+    background: rgb(0, 0, 0); 
     transition: background 0.2s;
   }
 </style>
@@ -32,7 +32,7 @@
   const container = document.getElementById("pixel-container");
   const pixelSize = 10;
 
-  // ----- 픽셀 400개 생성 (for loop 사용) -----
+  // ----- create pixels 1000 -----
   for (let i = 1; i < 1000; i++) {
     const p = document.createElement("div");
     p.className = "pixel";
@@ -42,19 +42,19 @@
   function flicker() {
     const pixels = document.querySelectorAll(".pixel");
 
-    // ----- for loop + if/else 조건문 -----
+   
     for (let i = 0; i < pixels.length; i++) {
       let r = Math.random();
 
       if (r < 0.3) {
-        pixels[i].style.background = "white";  // 깜빡임
+        pixels[i].style.background = "white";  // flicker color
       } else {
-        pixels[i].style.background = "blue";  // 기본
+        pixels[i].style.background = "blue"; 
       }
     }
   }
 
-  // 100ms마다 flicker 실행
+  // flicker speed
   setInterval(flicker, 200);
 </script>
 

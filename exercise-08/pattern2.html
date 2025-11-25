@@ -29,7 +29,7 @@ function animate(){
       const offset = Math.sin((x + t) * 0.01) * 50;
       ctx.rect(x, y + offset, 18, 18);
 
-      // 조건문으로 색 변화
+      //color change
       if (x % 40 === 0) ctx.fillStyle = "white";
       else ctx.fillStyle = "blue";
 
