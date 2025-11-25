@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>pattern3</title>
+<style>
+  body { margin:0; background:white; overflow:hidden; }
+  .sq {
+    position: absolute;
+    font-family: Arial;
+    font-size: 5px;
+    color: blue;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<script>
+const rows = 20;
+const cols = 30;
+let items = [];
+
+// 여러 줄 생성 (LOOP)
+for (let r = 0; r < rows; r++) {
+  for (let c = 0; c < cols; c++) {
+    const el = document.createElement("div");
+    el.className = "sq";
+    el.innerText = "square";
+    document.body.appendChild(el);
+
+    // 고정 위치
+    const x = 60 + c * 110;
+    const y = 60 + r * 60;
+
+    // 랜덤 깜박임 타이머를 위해 저장
+    items.push({ el, x, y });
+  }
+}
+
+// 애니메이션
+function animate() {
+  // LOOP: 모든 글자 업데이트
+  for (let i = 0; i < items.length; i++) {
+    const sq = items[i];
+
+    // 위치 고정
+    sq.el.style.left = sq.x + "px";
+    sq.el.style.top = sq.y + "px";
+
+    // CONDITIONAL: random 값이 특정 값보다 크거나 작으면 깜박이기
+    const r = Math.random(); // 0~1
+
+    if (r > 0.97) { 
+      sq.el.style.opacity = 1;      // 밝게
+    } else if (r < 0.02) {
+      sq.el.style.opacity = 0.1;    // 어둡게
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+</body>
+</html>

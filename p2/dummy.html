@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<title>Text Dust & Mouse Trail</title>
+<style>
+  body {
+    margin: 0;
+    overflow: auto;
+    background: #f2f2f2;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+  }
+  canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  #textLayer {
+    position: relative;
+    margin: 30px;
+    padding:100px;
+    font-size: 30px;
+    line-height: 1.5;
+    color: black;
+    cursor: pointer;
+    white-space: pre-wrap;
+    max-width: 90%;
+  }
+  #textLayer span {
+    display: inline-block;
+    position: relative;
+  }
+  .title-container {
+    position: fixed;
+    margin:1%;
+    width: 40%;
+    top:0px;
+    height:auto;
+    color:white;
+    -webkit-text-stroke: 1px black; 
+    font-size: 70px;
+    z-index: 10;
+    font-family: "Arial", sans-serif;
+  }
+  .exhibition-container {
+    position: fixed;
+    right:5%;
+    top:0px;
+    color:white;
+    -webkit-text-stroke: 1px black; 
+    margin:1%;
+    width: 50%;
+    font-size: 70px;
+    align-content: right;
+    z-index: 10;
+    font-family: "Arial", sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<div class="title-container">
+    <span class="name">Gala Porras-Kim</span>
+</div>
+<div class="exhibition-container">
+    <span class="exhibition">Unseen Force</span><br>
+    <span class="date">Nov 1, 2025 – <br> Dec 5, 2025 </span>
+</div>
+
+<div id="textLayer">
+
+Gala Porras-Kim 
+4727 2nd Avenue 
+Los Angeles, CA 90043
+
+
+New York City, November 20, 2021
+
+Ms. Jane Pickering
+William and Muriel Seabury Howells Director
+Peabody Museum of Archaeology & Ethnology
+Harvard University
+11 Divinity Ave, Cambridge, MA 02138
+RE: Mediating with the rain
+
+Dear Ms. Pickering,
+
+Thanks very much to you and your staff for being so accommodating and helpful in providing records and information regarding the objects that were dredged from the Sacred Cenote at Chichén Itza currently located in your museum. As I mentioned in our last meeting, I am interested in objects suspended from their original function or purpose by being stored and displayed in institutions solely as historical objects. In this case, these votive offerings were submerged as tributes to the Mayan rain god Chaac, and probably never meant to leave the cenote. It is clear from the documents regarding the provenance of these objects that human laws were used to displace them from their intended place to their current location at the Peabody. Their owner, the rain, is still around.
+
+Some of the objects had been preserved over centuries because they were submerged in water in the cenote. Their current state of dehydration, caused by their extraction and maintenance by conservators, permanently changed their composition so now they are just dust particles held together through conservation methods. The Peabody is, in fact, preserving this dust as a shell of its past shape. Your storage, being one of the driest environments in which they can exist, is in complete opposition to their submerged wet state, and their current condition as historical artifacts might make it difficult to realize their purpose with the rain.
+
+The museum is tasked with caring for the object, but should not be limited only to the physical conservation of material form, by extending this care to the immaterial and the preservation of the ritual function—the dignitary interests—that may still exist within the object. Since we can only speculate on what the rain might want, we can, by extension, consider ways in which we can reinstitute the ritual life they continue to have within them as well.
+
+For this purpose, I would like to thank you for collecting and providing the fallen dust that was available in the storage room, which is now being rehydrated through various means. Of course, there are many ways that these multiple functions can coexist and I’ve attached some initial ideas to brainstorm. I look forward to discussing with you future solutions to this arid landscape.
+
+Thank you again for your attention, consideration, and time, and I await your reply with interest.
+
+Sincerely,
+
+Gala Porras-Kim
+
+</div>
+
+<canvas id="dustCanvas"></canvas>
+
+<script>
+const canvas = document.getElementById('dustCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+let trailDots = [];
+
+class Particle {
+    constructor(x, y, color){
+        this.x = x;
+        this.y = y + window.scrollY;
+        const speed = Math.random()*2.5+1;
+        const angle = Math.random()*Math.PI*2;
+        this.vx = Math.cos(angle)*speed;
+        this.vy = Math.sin(angle)*speed;
+        this.alpha = 1;
+        this.color = color;
+        this.gravity = 0.1 + Math.random()*0.1;
+        this.size = 1 + Math.random()*2;
+    }
+    update(){
+        this.vx *= 0.98;
+        this.vy += this.gravity;
+        this.x += this.vx;
+        this.y += this.vy;
+        this.alpha -= 0.01;
+    }
+    draw(){
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = this.alpha;
+        ctx.fillRect(this.x, this.y, this.size, this.size);
+        ctx.globalAlpha = 1;
+    }
+}
+
+class TrailDot {
+    constructor(x,y){
+        this.x = x;
+        this.y = y + window.scrollY;
+        this.alpha = 0.5 + Math.random()*0.5;
+        this.size = 3 + Math.random()*4;
+        this.vx = (Math.random()-0.5)*0.5;
+        this.vy = (Math.random()-0.5)*0.5;
+    }
+    update(){
+        this.x += this.vx;
+        this.y += this.vy;
+        this.alpha -= 0.01;
+        if(this.alpha<0) this.alpha=0;
+    }
+    draw(){
+        const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
+        gradient.addColorStop(0, `rgba(0,0,0,${this.alpha})`);
+        gradient.addColorStop(1, `rgba(0,0,0,0)`);
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+        ctx.fill();
+    }
+}
+
+const textLayer = document.getElementById('textLayer');
+const text = textLayer.innerText;
+textLayer.innerHTML = "";
+for(let char of text){
+    const span = document.createElement('span');
+    span.innerText = char;
+    textLayer.appendChild(span);
+}
+
+document.querySelectorAll('#textLayer span').forEach(span=>{
+    span.addEventListener('mouseenter', ()=>{
+        const rect = span.getBoundingClientRect();
+        const color = "rgba(0,0,0,1)";
+        span.style.transition = "opacity 1.2s ease-out";
+        span.style.opacity = "0.05";
+
+        for(let y = 0; y < rect.height; y+=4){
+            for(let x = 0; x < rect.width; x+=4){
+                const px = rect.left + x + Math.random()*2;
+                const py = rect.top + y + Math.random()*2;
+                particles.push(new Particle(px, py, color));
+            }
+        }
+    });
+});
+
+document.addEventListener('mousemove', e=>{
+    for(let i=0; i<2; i++){
+        trailDots.push(new TrailDot(e.clientX, e.clientY));
+    }
+});
+
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for(let i=particles.length-1; i>=0; i--){
+        const p = particles[i];
+        p.update();
+        p.draw();
+        if(p.alpha<=0) particles.splice(i,1);
+    }
+    for(let i=trailDots.length-1;i>=0;i--){
+        const t = trailDots[i];
+        t.update();
+        t.draw();
+        if(t.alpha<=0) trailDots.splice(i,1);
+    }
+    requestAnimationFrame(animate);
+}
+animate();
+
+window.addEventListener('resize', ()=>{
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
+
+</body>
+</html>

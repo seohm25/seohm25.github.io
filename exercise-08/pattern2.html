@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>pattern2</title>
+<style>
+  body { margin:0; background:blue; overflow:hidden; }
+</style>
+</head>
+<body>
+
+<canvas id="c"></canvas>
+
+<script>
+const canvas = document.getElementById("c");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let t = 0;
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  for (let y = 0; y < canvas.height; y += 5) {
+
+    ctx.beginPath();
+    for (let x = 0; x < canvas.width; x += 20) {
+      const offset = Math.sin((x + t) * 0.01) * 50;
+      ctx.rect(x, y + offset, 18, 18);
+
+      // 조건문으로 색 변화
+      if (x % 40 === 0) ctx.fillStyle = "white";
+      else ctx.fillStyle = "blue";
+
+      ctx.fill();
+    }
+  }
+
+  t += 2;
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+</body>
+</html>
