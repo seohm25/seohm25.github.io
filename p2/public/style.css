@@ -1,0 +1,199 @@
+
+  body {
+    margin:0; padding:0; height:100%; 
+    overflow: auto;
+    background: transparent;
+    font-family: Arial, sans-serif;
+    /* background-image: url(bg2.gif); */
+
+
+  }
+  canvas {
+    position: fixed;
+    top:0;
+    left:0;
+    z-index:0;
+    pointer-events: none; /* canvas 위에서도 스크롤 가능 */
+  }
+
+
+  .title-container {
+      position: fixed;
+      margin:1%;
+      width: 39%;
+      top:0px;
+      height:auto;
+      color:rgb(125, 87, 72);
+      font-size: 60px;
+      z-index: 1;
+      font-family: "Arial", sans-serif;
+      font-weight: 900;
+  
+    }
+
+
+
+
+  .exhibition-container {
+    position: fixed;
+    right: 15%;
+    top:0px;
+    color:rgb(125, 87, 72);
+    margin:1%;
+    width: 40%;
+    font-size: 60px;
+    align-content: right;
+    z-index: 1;
+    font-family: "Arial", sans-serif;
+    font-weight: 900;
+
+  }
+
+  .date {
+    font-family: "Arial", sans-serif;
+    font-size: 40px;
+    
+  }
+
+
+
+  #infobutton {
+    position: fixed;
+    top: 33px;
+    right: 35px;
+    padding: 5px 5px;
+    font-size: 18px;
+    /* font-weight: 600; */
+    font-family: "Arial", sans-serif;
+    background-color: transparent;
+    border: 2px solid rgb(125, 87, 72); 
+    color:  rgb(125, 87, 72); 
+    cursor: pointer;
+    z-index: 50;
+    transition: 0.25s ease;
+  }
+  
+  #infobutton:hover {
+    background-color: rgba(234,228,134);   
+    color:  rgb(125, 87, 72) ;              
+  }
+
+  
+  #workbutton {
+    position: fixed;
+    top: 85px;
+    right: 35px;
+    padding: 5px 5px;
+    font-size: 18px;
+    font-family: "Arial", sans-serif;
+    /* font-weight: 600; */
+    background-color: transparent;
+    border: 2px solid  rgb(125, 87, 72);  
+    color:  rgb(125, 87, 72); 
+    cursor: pointer;
+    z-index: 50;
+    transition: 0.25s ease;
+  }
+  
+  #workbutton:hover {
+    background-color: rgba(234,228,134);   
+    color: rgb(125, 87, 72);              
+  }
+  /* .content {
+    position: relative;
+    z-index:1;
+    padding:50px;
+    color:#000;
+  } */
+
+  #visitorCount {
+    position: fixed;
+    bottom:20px;
+    left:20px;
+    padding:10px 15px;
+    border-radius:8px;
+    font-size:20px;
+    z-index:10;
+    color:rgb(125, 87, 72);
+    z-index: 20;
+    font-family: "Arial", sans-serif;  
+    font-weight: 600;
+  }
+
+  #resetButton {
+    position: fixed;
+    bottom: 65px;
+    left: 35px;
+    padding: 5px 5px;
+    font-size: 18px;
+    font-family: "Arial", sans-serif;
+    /* font-weight: 600; */
+    background-color: transparent;
+    border: 2px solid rgb(125, 87, 72);  
+    color: rgb(125, 87, 72);
+    cursor: pointer;
+    z-index: 50;
+    transition: 0.25s ease;
+  }
+  
+  #resetButton:hover {
+    background-color: rgba(234,228,134);   
+    color: rgb(125, 87, 72);              
+  }
+
+
+
+
+  /* trail canvas */
+  #bgCanvas {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index: 1; /* 배경 이미지 */
+    pointer-events: auto; /* 클릭 가능 */
+  }
+  
+  #trail {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index: 1; /* 배경 위, 텍스트 아래 */
+    background: transparent; /* 투명 */
+    pointer-events: none; /* 클릭 방해 X */
+  }
+  
+  #uiCanvas {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index: 3; /* 텍스트 등 */
+    pointer-events: none;
+  }
+
+    #bgCanvas, #uiCanvas {
+    position: fixed;
+    top:0; left:0;
+    width: 100%; height: 100%;
+  }
+  #bgCanvas { z-index: 0; }  /* dot layer */
+  /* #uiCanvas { z-index: 1; }  텍스트 위 */
+
+ 
+  img {
+    position: fixed;
+    width: 30px;
+    top:20px;
+    right:20px;
+    padding:10px 15px;
+  }
+
+ 
+
+
+
