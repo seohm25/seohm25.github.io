@@ -42,7 +42,7 @@ for (let r = 0; r < rows; r++) {
 
 // 애니메이션
 function animate() {
-  // LOOP: 모든 글자 업데이트
+
   for (let i = 0; i < items.length; i++) {
     const sq = items[i];
 
@@ -50,7 +50,7 @@ function animate() {
     sq.el.style.left = sq.x + "px";
     sq.el.style.top = sq.y + "px";
 
-    // CONDITIONAL: random 값이 특정 값보다 크거나 작으면 깜박이기
+    // random 값이 특정 값보다 크거나 작으면 깜박이기
     const r = Math.random(); // 0~1
 
     if (r > 0.97) { 

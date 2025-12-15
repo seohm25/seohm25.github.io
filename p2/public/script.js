@@ -172,7 +172,7 @@ setInterval(()=>{
 }, sendInterval);
 function animate() {
   // ctx.clearRect(0,0,canvas.width,canvas.height); 
-  // ❌ 제거: 이전 점을 지우지 않음
+  // 이전 점을 지우지 않음
 
   for (let i = 0; i < dustDots.length; i++) {
     const dot = dustDots[i];
@@ -196,8 +196,15 @@ animate();
 
 // reset button
 document.getElementById("resetButton").addEventListener("click", ()=>{
+  // Firebase 데이터 삭제
   firebase.database().ref("dustDots").remove();
+
+  // 로컬 데이터 초기화
   dustDots = [];
+  dustBuffer = [];
+
+  // 화면 클리어
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 
 // 🔹 배경 이미지 (alpha 조절 가능)
