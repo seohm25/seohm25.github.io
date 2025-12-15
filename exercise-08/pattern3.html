@@ -31,32 +31,32 @@ for (let r = 0; r < rows; r++) {
     el.innerText = "square";
     document.body.appendChild(el);
 
-    // 고정 위치
+    // Set to a fixed position
     const x = 10 + c * 110;
     const y = 10 + r * 60;
 
-    // 랜덤 깜박임 타이머
+    // random blink timer
     items.push({ el, x, y });
   }
 }
 
-// 애니메이션
+// animation
 function animate() {
 
   for (let i = 0; i < items.length; i++) {
     const sq = items[i];
 
-    // 위치 고정
+    // fixed position 
     sq.el.style.left = sq.x + "px";
     sq.el.style.top = sq.y + "px";
 
-    // random 값이 특정 값보다 크거나 작으면 깜박이기
+   // blink based on random value
     const r = Math.random(); // 0~1
 
     if (r > 0.97) { 
-      sq.el.style.opacity = 1;      // 밝게
+      sq.el.style.opacity = 1;      // brighter
     } else if (r < 0.02) {
-      sq.el.style.opacity = 0;    // 어둡게
+      sq.el.style.opacity = 0;    // darker
     }
   }
 
