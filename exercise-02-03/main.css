@@ -1,172 +1,158 @@
 
-
-/*global variables*/
+ /* global variables */
 :root {          
-    --weight: 300;
     --weight: 100;
+} 
+
+body{
+   background-color: whitesmoke;
 } 
 
 .name {
     display: block;
     font-family: "Cossette Texte", sans-serif;
     color: rgb(202, 255, 97);
-    background-color:rgb(194, 192, 152);
-    font-size:xx-large;
+    background-color: rgb(194, 192, 152);
+    font-size: xx-large;
     width: 200px;
     transform: rotate(3deg);
-    margin:50px;
+    margin: 50px;
 }
+
+/* ------------------ */
+/* HOVER WRAPPER */
+/* ------------------ */
+
+.exercise-wrap {
+    width: 140px;          /* hover area 확장 */
+    height: 50px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 실제 움직이는 요소 */
+.exercise-work {
+    color: rgb(202, 255, 97);
+    background-color: rgb(97, 105, 255);
+    font-family: "Cossette Texte", sans-serif;
+    font-size: var(--weight);
+    width: 100px;
+    display: block;
+    text-align: center;
+
+    transform: rotate(3deg);
+    transition: transform 0.2s ease;
+    will-change: transform;
+}
+
+/* hover는 wrapper 기준 */
+.exercise-wrap:hover .exercise-work {
+    transform: rotate(10deg);
+}
+
+/* ------------------ */
+/* OTHER TEXT */
+/* ------------------ */
 
 .exercise-name {
     color: rgb(97, 105, 255);
-    background-color:rgb(194, 192, 152) ;
+    background-color: rgb(194, 192, 152);
     transform: rotate(3deg);
     font-family: "Cossette Texte", sans-serif;
     font-size: var(--weight);
     width: 100px;
-    margin:10px auto;
-}
-
-.exercise-work {
-    color: rgb(202, 255, 97);
-    background-color:rgb(97, 105, 255) ;
-    transform: rotate(3deg);
-    font-family: "Cossette Texte", sans-serif;
-    font-size: var(--weight);
-    width: 100px;
-    margin:10px auto;
-}
-
-a.exercise-work {
-    color: rgb(202, 255, 97);
-    background-color:rgb(97, 105, 255) ;
-    transform: rotate(3deg);
-    font-family: "Cossette Texte", sans-serif;
-    font-size: var(--weight);
-    width: 100px;
-    display: block;
-    margin:10px auto;
-}
-
-a.exercise-work:hover {
-    color: rgb(202, 255, 97);
-    background-color:rgb(97, 105, 255) ;
-    transform: rotate(10deg);
-    font-family: "Cossette Texte", sans-serif;
-    font-size: var(--weight);
-    width: 100px;
-    height: 30px;
-    display: block;
-    margin: 20px auto;
+    margin: 10px auto;
 }
 
 p {
     color: black;
     display: block;
-   
     font-family: "Cossette Texte", sans-serif;
-    height:20px;
+    height: 20px;
     width: 100px;
-    margin:70px auto;
+    margin: 70px auto;
 }
-
 
 .evoke {
     color: rgb(97, 105, 255);
-    background-color:rgb(194, 192, 152) ;
+    background-color: rgb(194, 192, 152);
     transform: rotate(3deg);
     font-family: "Cossette Texte", sans-serif;
     font-size: var(--weight);
     width: 600px;
-    margin:0px auto;
-
+    margin: 0 auto;
 }
 
 .number {
     display: block;
     font-family: "Cossette Texte", sans-serif;
     color: rgb(202, 255, 97);
-    background-color:rgb(194, 192, 152);
-    font-size:xx-large;
+    background-color: rgb(194, 192, 152);
+    font-size: xx-large;
     width: 50px;
-    margin:50px;
+    margin: 50px;
 }
 
 .article-body p {
-
-    width:500px;
-    margin:50px auto;
+    width: 500px;
+    margin: 50px auto;
     font-size: small;
-
 }
+
+/* ------------------ */
+/* LINKS */
+/* ------------------ */
 
 a {
     color: rgb(194, 192, 152);
     display: inline-block;
-    background-color:rgb(97, 105, 255);
+    background-color: rgb(97, 105, 255);
     transform: skewY(1deg);
     font-family: "Cossette Texte", sans-serif;
-    width:400px;
+    width: 400px;
     margin: 10px;
-    
-
 }
-a:hover { /* link on hover */
-    display: inline-block;
-    color:rgb(202, 255, 97);
+
+a:hover {
+    color: rgb(202, 255, 97);
     background-color: rgb(97, 105, 255);
     transform: skewY(-5deg);
-    font-family: "Cossette Texte", sans-serif;
-    width: 400px;
-    height: 50px;
-    }
+}
 
-
-body{
-   background-color: whitesmoke;
-} 
+/* ------------------ */
+/* PAGE NAV */
+/* ------------------ */
 
 .next-page {
-    position:fixed;
-    bottom: 0px;
+    position: fixed;
+    bottom: 0;
+    right: -100px;
     width: 300px;
     margin: 20px;
-    right:-100px;
-    
     color: rgb(97, 105, 255);
-    display: inline-block;
     background-color: rgb(202, 255, 97);
     transform: skewY(-1deg);
-    
 }
 
 .next-page:hover {
-    position:fixed;
-    bottom: 0px;
-    background-color:black;
+    background-color: black;
     transform: skewY(5deg);
-    
 }
 
 .back-page {
-    position:fixed;
-    bottom: 0px;
+    position: fixed;
+    bottom: 0;
+    left: -10px;
     width: 300px;
     margin: 20px;
-    left:-10px;
-    
     color: rgb(97, 105, 255);
-    display: inline-block;
     background-color: rgb(202, 255, 97);
     transform: skewY(1deg);
-    
 }
 
 .back-page:hover {
-    position:fixed;
-    bottom: 0px;
-    background-color:black;
+    background-color: black;
     transform: skewY(-5deg);
-    
 }
-
